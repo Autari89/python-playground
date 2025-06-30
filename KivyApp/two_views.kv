@@ -1,0 +1,41 @@
+#:kivy 2.0.0
+#:import dp kivy.metrics.dp
+
+<MainScreen>:
+    name: "main"
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(10)
+
+        Label:
+            text: "Main Screen"
+            font_size: "24sp"
+
+        Button:
+            text: "Go to Secondary"
+            size_hint_y: None
+            height: dp(48)
+            on_press: app.root.current = "secondary"
+
+<SecondaryScreen>:
+    name: "secondary"
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(10)
+
+        Label:
+            text: "Secondary Screen"
+            font_size: "24sp"
+
+        Button:
+            text: "Go Back"
+            size_hint_y: None
+            height: dp(48)
+            on_press: app.root.current = "main"
+
+# The root widget
+ScreenManager:
+    MainScreen:
+    SecondaryScreen:
