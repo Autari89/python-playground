@@ -1,0 +1,50 @@
+<ExerciseRow>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: dp(60)
+    spacing: dp(10)
+    adaptive_width: False
+
+    MDTextField:
+        id: exercise_name
+        hint_text: "Exercise"
+        size_hint_x: 0.3
+        mode: "outlined"
+        theme_text_color: "Primary"
+
+    MDTextField:
+        id: sets_field
+        hint_text: "Sets"
+        size_hint_x: 0.15
+        mode: "outlined"
+        input_filter: "int"
+        theme_text_color: "Primary"
+
+    MDTextField:
+        id: reps_field
+        hint_text: "Reps"
+        size_hint_x: 0.15
+        mode: "outlined"
+        input_filter: "int"
+        theme_text_color: "Primary"
+
+    MDTextField:
+        id: weight_field
+        hint_text: "Weight (Kg)"
+        size_hint_x: 0.2
+        mode: "outlined"
+        input_filter: "float"
+        theme_text_color: "Primary"
+
+    MDTextField:
+        id: notes_field
+        hint_text: "Notes"
+        size_hint_x: 0.15
+        mode: "outlined"
+        theme_text_color: "Primary"
+
+    MDIconButton:
+        icon: "delete"
+        size_hint_x: 0.05
+        theme_icon_color: "Error"
+        on_release: root.remove_self()
