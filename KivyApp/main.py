@@ -8,6 +8,7 @@ from screens import MainScreen, WorkoutLogView, HistoryView
 class FitnessTrackerApp(MDApp):
     def build(self):
         # Load the main .kv file
+        self.theme_cls.theme_style = "Dark"
         return Builder.load_file("fitness_tracker.kv")
 
 

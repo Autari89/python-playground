@@ -1,64 +1,37 @@
 #:kivy 2.0.0
 #:import dp kivy.metrics.dp
 
-<MainScreen>:
+
+MDScreen:
+    md_bg_color: self.theme_cls.backgroundColor
+
     BoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(10)
+        MDTopAppBar:
+            type: "small"
+            size_hint_x: 1.0
 
-        Label:
-            text: "Main Screen"
-            font_size: "24sp"
+            MDTopAppBarLeadingButtonContainer:
 
-        Button:
-            text: "Log workout"
-            size_hint_y: None
-            height: dp(48)
-            on_press:
-                app.root.current = "workout_log"
-                root.manager.transition.direction = "left"
+                MDActionTopAppBarButton:
+                    icon: "menu"
 
-        Button:
-            text: "Check History"
-            size_hint_y: None
-            height: dp(48)
-            on_press:
-                app.root.current = "history_view"
-                root.manager.transition.direction = "left"
+            MDTopAppBarTitle:
+                text: "Fitness Tracker"
+                halign: "center"
 
+        ScreenManager:
+            id: screen_manager
 
-<HistoryView>:
-    BoxLayout:
-        orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(10)
-
-        Label:
-            text: "History view"
-            font_size: "24sp"
-
-        Button:
-            text: "Go Back"
-            size_hint_y: None
-            height: dp(48)
-            on_press:
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-
-# The root widget
-ScreenManager:
-    id: screen_manager
-
-    MainScreen:
-        id: main_screen
-        name: "main"
-        manager: screen_manager
-    WorkoutLogView:
-        id: workout_log
-        name: "workout_log"
-        manager: screen_manager
-    HistoryView:
-        id: history_view
-        name: "history_view"
-        manager: screen_manager
+            MainScreen:
+                id: main_screen
+                name: "main"
+                manager: screen_manager
+            WorkoutLogView:
+                id: workout_log
+                name: "workout_log"
+                manager: screen_manager
+            HistoryView:
+                id: history_view
+                name: "history_view"
+                manager: screen_manager
