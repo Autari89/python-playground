@@ -1,0 +1,37 @@
+#:kivy 2.0.0
+#:import dp kivy.metrics.dp
+
+
+MDScreen:
+    md_bg_color: self.theme_cls.backgroundColor
+
+    BoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            type: "small"
+            size_hint_x: 1.0
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "menu"
+
+            MDTopAppBarTitle:
+                text: "Fitness Tracker"
+                halign: "center"
+
+        ScreenManager:
+            id: screen_manager
+
+            MainScreen:
+                id: main_screen
+                name: "main"
+                manager: screen_manager
+            WorkoutLogView:
+                id: workout_log
+                name: "workout_log"
+                manager: screen_manager
+            HistoryView:
+                id: history_view
+                name: "history_view"
+                manager: screen_manager

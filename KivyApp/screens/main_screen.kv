@@ -1,0 +1,25 @@
+<MainScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(10)
+
+        Label:
+            text: "Main Screen"
+            font_size: "24sp"
+
+        Button:
+            text: "Log workout"
+            size_hint_y: None
+            height: dp(48)
+            on_press:
+                app.root.ids.screen_manager.current ="workout_log"
+                app.root.ids.screen_manager.transition.direction = "left"
+
+        Button:
+            text: "Check History"
+            size_hint_y: None
+            height: dp(48)
+            on_press:
+                app.root.ids.screen_manager.current = "history_view"
+                app.root.ids.screen_manager.transition.direction = "left"
